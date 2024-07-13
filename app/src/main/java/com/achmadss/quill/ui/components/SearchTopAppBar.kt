@@ -64,20 +64,16 @@ fun SearchTopAppBar(
                 IconButton(onClick = { isSearching = false }) {
                     Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "")
                 }
+            } else {
+                leadingIcon.invoke()
             }
         },
         title = {
             if (!isSearching) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    leadingIcon.invoke()
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.titleLarge,
-                    )
-                }
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge,
+                )
                 return@TopAppBar
             }
             OutlinedTextField(
