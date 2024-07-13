@@ -89,4 +89,7 @@ dependencies {
     implementation(libs.voyager.tab.navigator) // TabNavigator
     implementation(libs.voyager.transitions) // TabNavigator
     implementation(libs.voyager.koin) // Koin integration
+
+    // material icons
+    implementation(libs.androidx.material.icons.extended)
 }
