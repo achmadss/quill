@@ -2,7 +2,6 @@ package com.achmadss.quill.ui.screens.home
 
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +27,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import com.achmadss.data.local.Constants
-import com.achmadss.data.local.Constants.SharedPrefKeys.TEST_KEY
+import com.achmadss.data.local.Constants.SharedPrefKeys.TEST
 import com.achmadss.data.local.asFlow
 import com.achmadss.data.local.put
 import com.achmadss.quill.ui.components.SearchTopAppBar
@@ -43,7 +42,7 @@ object HomeScreen: Screen {
         val preferences by lazy {
             context.getSharedPreferences(Constants.SHARED_PREFERENCES, Context.MODE_PRIVATE)
         }
-        val test by preferences.asFlow(TEST_KEY, "").collectAsState(initial = "")
+        val test by preferences.asFlow(TEST, "").collectAsState(initial = "")
         var textInputValue by remember { mutableStateOf("") }
 
         Scaffold(
@@ -83,7 +82,7 @@ object HomeScreen: Screen {
                     }
                 )
                 Button(
-                    onClick = { preferences.put(TEST_KEY, textInputValue) }
+                    onClick = { preferences.put(TEST, textInputValue) }
                 ) {
                     Text(text = "Update")
                 }

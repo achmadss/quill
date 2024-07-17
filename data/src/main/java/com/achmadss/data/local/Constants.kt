@@ -5,7 +5,7 @@ object Constants {
     const val SHARED_PREFERENCES = "AppPrefs"
 
     object SharedPrefKeys {
-        const val TEST_KEY = "test"
+        const val TEST = "test"
     }
 
 }
